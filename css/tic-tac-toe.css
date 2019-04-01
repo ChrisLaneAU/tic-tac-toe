@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  height: 30em;
+  width: 30em;
+  border: 1px solid #333;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.square {
+  border: 1px solid #333;
+  position: relative;
+}
+
+.cross,
+.cross::after {
+  width: 6em;
+  height: 5px;
+  background-color: #333;
+}
+
+.cross {
+  transform: rotate(45deg) translateX(75px) translateY(32px);
+}
+
+.cross::after {
+  content: "";
+  transform: rotate(90deg) translateX(-1px) translateY(4px);
+  position: absolute;
+}
+
+.naught {
+  height: 5em;
+  width: 5em;
+  border: 5px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

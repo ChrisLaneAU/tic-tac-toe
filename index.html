@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/tic-tac-toe.css" />
+    <script defer src="js/domManipulation.js"></script>
+    <script defer src="js/gameLogic.js"></script>
+  </head>
+  <body>
+    <header><h1>Tic Tac Toe</h1></header>
+    <main class="container">
+      <section class="rules">
+        <ul class="rules-list">
+          <li class="rules-list-item">
+            Take turns placing an X or O in a square
+          </li>
+          <li class="rules-list-item">
+            Try to join three of your symbols in a row
+          </li>
+        </ul>
+      </section>
+
+      <section class="game">
+        <div class="grid">
+          <div id="square1" class="square"><div class="cross">&nbsp;</div></div>
+          <div id="square2" class="square">
+            <div class="naught">&nbsp;</div>
+          </div>
+          <div id="square3" class="square"></div>
+          <div id="square4" class="square"></div>
+          <div id="square5" class="square"></div>
+          <div id="square6" class="square"></div>
+          <div id="square7" class="square"></div>
+          <div id="square8" class="square"></div>
+          <div id="square9" class="square"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
