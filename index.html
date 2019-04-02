@@ -4,40 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>Tic Tac Toe</title>
+
+    <!-- CSS files -->
     <link rel="stylesheet" href="css/tic-tac-toe.css" />
+
+    <!-- Javascript Files -->
+    <script src="js/jquery.min.js"></script>
     <script defer src="js/domManipulation.js"></script>
     <script defer src="js/gameLogic.js"></script>
   </head>
   <body>
     <header><h1>Tic Tac Toe</h1></header>
+
     <main class="container">
+      <section class="modal">
+        <div class="modal-bg">
+          <div class="modal-box">
+            <h2 class="modal-box-message"></h2>
+            <button class="modal-box-button">Play Again</button>
+          </div>
+        </div>
+      </section>
+
       <section class="rules">
-        <ul class="rules-list">
+        <h2>Rules</h2>
+        <ol class="rules-list">
           <li class="rules-list-item">
             Take turns placing an X or O in a square
           </li>
           <li class="rules-list-item">
             Try to join three of your symbols in a row
           </li>
-        </ul>
+        </ol>
       </section>
 
       <section class="game">
-        <div class="grid">
-          <div id="square1" class="square"><div class="cross">&nbsp;</div></div>
-          <div id="square2" class="square">
-            <div class="naught">&nbsp;</div>
-          </div>
+        <h3 class="current-player">Current Player: <span></span></h3>
+        <div class="game-grid">
+          <div id="square0" class="square"></div>
+          <div id="square1" class="square"></div>
+          <div id="square2" class="square"></div>
           <div id="square3" class="square"></div>
           <div id="square4" class="square"></div>
           <div id="square5" class="square"></div>
           <div id="square6" class="square"></div>
           <div id="square7" class="square"></div>
           <div id="square8" class="square"></div>
-          <div id="square9" class="square"></div>
         </div>
       </section>
     </main>
+
+    <footer>
+      <div class="footer container">
+        <a
+          href="https://github.com/ChrisLaneAU/tic-tac-toe"
+          target="_blank"
+          class="footer-link"
+          >See Github Repo</a
+        >
+        <p class="footer-copyright">&copy; Chris Lane 2019</p>
+      </div>
+    </footer>
   </body>
 </html>
