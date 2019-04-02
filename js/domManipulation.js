@@ -20,10 +20,17 @@ $(document).ready(function() {
     ticTacToe.playerNames[ticTacToe.currentPlayerId]
   );
 
+  // restart game
   $(".modal-box-button").on("click", function() {
     ticTacToe.turns = [];
     render();
     $(".modal").fadeOut(200);
+  });
+
+  // add the players turn indicators (one for each player)
+  $(Object.keys(ticTacToe.playerNames)).each(function(index, playerId) {
+    $(`.${playerId}`).text(ticTacToe.playerNames[playerId]);
+    $(`.${ticTacToe.currentPlayerId}`).addClass("name-active");
   });
 
   $(".square").on("click", function(event) {
@@ -35,15 +42,17 @@ $(document).ready(function() {
 
     // check if square is empty first
     if (isSquareEmpty(id)) {
+      // change to next player
       ticTacToe.changePlayer();
-      $(".current-player span").text(
-        ticTacToe.playerNames[ticTacToe.currentPlayerId]
-      );
 
-      // log current user's turn
+      $(Object.keys(ticTacToe.playerNames)).each(function(index, player) {
+        $(`.${player}`).toggleClass("name-active");
+      });
+
+      // save current user's turn
       ticTacToe.addPlayerTurn(currentPlayerId, id);
 
-      // manipulate DOM
+      // render all o and x
       render();
 
       if (ticTacToe.checkWinner()) {

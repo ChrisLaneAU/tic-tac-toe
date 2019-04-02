@@ -8,10 +8,14 @@ html {
   font-family: sans-serif;
 }
 
+header {
+  background-color: #eee;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 1em;
-  padding: 0.3em;
+  padding: 0.5em;
 }
 
 .modal {
@@ -70,13 +74,35 @@ h1 {
   justify-content: center;
 }
 
-.current-player {
+.player-names {
   margin: 2em;
-  font-weight: 200;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.current-player span {
-  font-weight: 600;
+.player1,
+.player2 {
+  letter-spacing: 1px;
+  padding: 0.7em 1em;
+  border-radius: 5px;
+  border: 2px solid black;
+  background-color: #eee;
+  opacity: 0.4;
+  transition: all 0.5s;
+}
+
+.name-active {
+  background-color: #e1dfff;
+  border-color: #1717ff;
+  color: #1717ff;
+  opacity: 1;
+}
+
+.rules-heading {
+  text-align: center;
+  margin: 0.4em;
 }
 
 .game {
@@ -146,15 +172,16 @@ footer {
   height: 9em;
 
   display: grid;
-  grid-template-rows: 1fr 2em;
+  grid-template-rows: 1fr 2.5em;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
+  justify-items: center;
   align-content: center;
 }
 
 .footer-copyright {
   grid-column: 2;
   grid-row: 2;
+  align-self: start;
 }
 
 .footer-link {

@@ -52,21 +52,24 @@ const ticTacToe = {
       [2, 4, 6]
     ];
 
-    const checkAllRows = indexesToCheck.map(row =>
+    const mapAllRows = indexesToCheck.map(row =>
       row.map((square, index) => this.getAllTurns()[row[index]])
     );
 
     const isEqual = allSymbols =>
       allSymbols.every((symbol, index, array) => symbol === array[0]);
-    const result = checkAllRows.filter(row => isEqual(row));
+    const winningLines = mapAllRows.filter(row => isEqual(row));
 
-    const winner = result
+    const winner = winningLines
       .map(winningLine => {
         if (winningLine[0]) return winningLine[0];
       })
-      .filter(each => each !== "");
+      .filter(each => each !== undefined)[0];
 
-    if (winner.length) return winner[0];
+    if (winner)
+      return winner === "cross"
+        ? this.playerNames.player1
+        : this.playerNames.player2;
 
     const maxTurns = this.rows * this.columns;
     if (this.turns.length === maxTurns) return "none";
