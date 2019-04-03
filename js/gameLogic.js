@@ -12,6 +12,12 @@ const ticTacToe = {
     this.turns = [...this.turns, { player: playerId, square: squareId }];
   },
 
+  removePlayerTurn: function(playerId, squareId) {
+    this.turns = this.turns.filter(
+      turn => turn.square && turn.square !== squareId
+    );
+  },
+
   changePlayer: function() {
     const playerIds = Object.keys(this.playerNames);
     const indexOfNextPlayer = playerIds.indexOf(this.currentPlayerId) + 1;
@@ -19,12 +25,18 @@ const ticTacToe = {
     this.currentPlayerId = nextPlayer || playerIds[0];
   },
 
-  getAllTurns: function() {
+  getAllTurns: function(extraTurns = { playerIds: [], squareIds: [] }) {
     const totalSquares = this.rows * this.columns;
     const squares = Array.from({ length: totalSquares }).map(value => "");
 
-    const playerIds = this.turns.map(turn => turn.player);
-    const squareIds = this.turns.map(turn => turn.square);
+    const playerIds = [
+      ...this.turns.map(turn => turn.player),
+      ...extraTurns.playerIds
+    ];
+    const squareIds = [
+      ...this.turns.map(turn => turn.square),
+      ...extraTurns.squareIds
+    ];
     const squareIndexes = squareIds.map(squareId =>
       squareId.slice(squareIds[0].length - 1)
     );
@@ -40,7 +52,7 @@ const ticTacToe = {
     return squares;
   },
 
-  checkWinner: function() {
+  checkWinner: function(extraTurns = { playerIds: [], squareIds: [] }) {
     const indexesToCheck = [
       [0, 1, 2],
       [3, 4, 5],
@@ -53,7 +65,7 @@ const ticTacToe = {
     ];
 
     const mapAllRows = indexesToCheck.map(row =>
-      row.map((square, index) => this.getAllTurns()[row[index]])
+      row.map((square, index) => this.getAllTurns(extraTurns)[row[index]])
     );
 
     const isEqual = allSymbols =>
