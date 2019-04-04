@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Tic Tac Toe</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/tic-tac-toe.css" />
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-database.js"></script>
+    <script src="js/firebaseConfig.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script defer src="js/domManipulation.js"></script>
+    <script defer src="js/gameLogic.js"></script>
+  </head>
+  <body>
+    <header><h1>Tic Tac Toe</h1></header>
+
+    <main class="container">
+      <section class="modal">
+        <div class="modal-bg">
+          <div class="modal-box">
+            <div class="modal-box-content">
+              <h2 class="modal-box-message"></h2>
+              <p class="modal-box-share-link"></p>
+              <input type="text" class="modal-enter-name" />
+              <button class="modal-box-button">Play Again</button>
+              <button class="modal-box-button-next">Next &rarr;</button>
+              <button class="modal-box-button-start">Start Game</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rules">
+        <h2 class="rules-heading">Rules</h2>
+        <ol class="rules-list">
+          <li class="rules-list-item">
+            Take turns placing an X or O in a square
+          </li>
+          <li class="rules-list-item">
+            To win, join three of your symbols in a row
+          </li>
+        </ol>
+      </section>
+
+      <section class="game">
+        <div class="player-names">
+          <h3 class="player1"></h3>
+          <h3 class="player2"></h3>
+        </div>
+        <div class="game-grid">
+          <div id="square0" class="square"></div>
+          <div id="square1" class="square"></div>
+          <div id="square2" class="square"></div>
+          <div id="square3" class="square"></div>
+          <div id="square4" class="square"></div>
+          <div id="square5" class="square"></div>
+          <div id="square6" class="square"></div>
+          <div id="square7" class="square"></div>
+          <div id="square8" class="square"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer container">
+        <a
+          href="https://github.com/ChrisLaneAU/tic-tac-toe"
+          target="_blank"
+          class="footer-link"
+          >See Github Repo</a
+        >
+        <p class="footer-copyright">&copy; Chris Lane 2019</p>
+      </div>
+    </footer>
+  </body>
+</html>

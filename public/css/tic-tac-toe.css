@@ -18,6 +18,10 @@ h1 {
   padding: 0.5em;
 }
 
+button {
+  outline: none;
+}
+
 .modal {
   display: none;
   z-index: 1000;
@@ -40,15 +44,27 @@ h1 {
 .modal-box {
   height: 12em;
   width: 20em;
+  padding: 0.5em;
+  padding-top: 1em;
   background-color: #fefefe;
   border: 1px solid #eee;
   border-radius: 6px;
   z-index: 1000;
+  position: relative;
+  overflow: hidden;
+}
 
+.modal-box-content {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .modal-box-message {
@@ -56,7 +72,22 @@ h1 {
   z-index: 1000;
 }
 
-.modal-box-button {
+.modal-box-share-link {
+  display: none;
+  font-size: 12px;
+  background-color: #eee;
+  padding: 3px;
+}
+
+.modal-enter-name {
+  display: none;
+  padding: 0.3em;
+  font-size: 1em;
+}
+
+.modal-box-button,
+.modal-box-button-next,
+.modal-box-button-start {
   background-color: blue;
   color: #fff;
   font-size: 0.9em;
@@ -66,6 +97,11 @@ h1 {
   padding: 1em 1.5em;
   cursor: pointer;
   z-index: 1000;
+}
+
+.modal-box-button-next,
+.modal-box-button-start {
+  display: none;
 }
 
 .container {
@@ -109,6 +145,10 @@ h1 {
   margin: 0.4em;
 }
 
+.rules-list-item {
+  padding: 0.3em;
+}
+
 .game {
   margin-bottom: 3em;
 }
@@ -143,12 +183,12 @@ h1 {
 }
 
 .cross {
-  transform: rotate(45deg) translateX(75px) translateY(32px);
+  transform: rotate(45deg) translateX(4.7em) translateY(2em);
 }
 
 .cross::after {
   content: "";
-  transform: rotate(90deg) translateX(-1px) translateY(4px);
+  transform: rotate(90deg) translateX(-1px) translateY(0.25em);
   position: absolute;
 }
 
@@ -178,7 +218,7 @@ footer {
 
   display: grid;
   grid-template-rows: 1fr 2.5em;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr max-content 1fr;
   justify-items: center;
   align-content: center;
 }
@@ -191,6 +231,18 @@ footer {
 
 .footer-link {
   grid-column: 2;
+}
+
+@media only screen and (max-width: 550px) {
+  .game-grid {
+    font-size: 10px;
+  }
+  .player-names {
+    margin: 2em 0.3em;
+  }
+  .rules-list {
+    margin: 1.5em;
+  }
 }
 
 /**************************************************/
@@ -232,6 +284,8 @@ footer {
   position: absolute;
   right: 5em;
   top: 19em;
+  padding: 1em;
+  background-color: #fff;
   height: 30em;
   width: 20em;
   border: 1px solid #000;
@@ -241,6 +295,20 @@ footer {
 
 .mod-list:hover {
   opacity: 1;
+}
+
+.mod-list > label,
+.mod-list > h2,
+.mod-list > h3 {
+  padding-bottom: 0.7em;
+}
+
+.mod-list > input {
+  margin-right: 0.3em;
+}
+
+h3 {
+  margin-top: 1em;
 }
 
 .move-square-left-2 {
@@ -258,4 +326,11 @@ footer {
 .highlight-square,
 .highlight-square:hover {
   background-color: #f77e7e;
+}
+
+.modal-box-ad {
+  height: 20em;
+  width: 24.1em;
+  background-image: url("../images/ad.png");
+  background-size: cover;
 }
