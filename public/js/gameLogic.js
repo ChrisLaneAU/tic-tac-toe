@@ -130,7 +130,6 @@ const ticTacToe = {
     this.turns = this.turns.filter(
       turn => turn.square && turn.square !== squareId
     );
-    console.log(this.turns);
     this.firebase.setPlayerTurns(gameId, this.turns);
   },
 

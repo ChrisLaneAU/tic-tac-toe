@@ -116,11 +116,18 @@ $(document).ready(function() {
 
   // append cheat list
   $(".image-devil").on("click", function() {
-    if (!$(".mod-list").length) {
-      $(".game").append("<div class='mod-list'></div>");
-      $(".mod-list").append(cheatList);
-    }
+    $(".mod-list").hover(function() {
+      $(this).css("opacity", "");
+    });
   });
+
+  if (!$(".mod-list").length) {
+    $(".game").append("<div class='mod-list'></div>");
+    $(".mod-list").append(cheatList);
+    $(".mod-list").hover(function() {
+      $(this).css("opacity", 0);
+    });
+  }
 
   // remove cheat list
   $(".image-angel").on("click", function() {
@@ -287,13 +294,6 @@ $(document).ready(function() {
     checkOpponentCheckbox("magic-loading");
     const { checked } = this;
     ticTacToe.firebase.onTurnsChange(getGameId(), function(snapshot) {
-      console.log("high length", $(".highlight-square").length);
-      console.log("current player local", ticTacToe.currentPlayerId);
-      console.log(
-        "current player session",
-        sessionStorage.getItem(getGameId())
-      );
-      console.log(snapshot.val().length);
       if (
         //checked &&
         //ticTacToe.currentPlayerId === "player2" &&
